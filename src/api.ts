@@ -1,13 +1,10 @@
-const BASE_URL = "https://demo.inflameltd.com/real_inv/api";
 // const BASE_URL2 = "http://localhost:5000/api";
 const BASE_URL2 = "https://inventory-backend-1-nms9.onrender.com/api";
-// https://demo.inflameltd.com/real_inv/api/auth/login
 
-// https://demo.inflameltd.com/real_inv/api/product/products
 export const api = {
 	login: `${BASE_URL2}/auth/login`,
 	logout: `${BASE_URL2}/auth/logout`,
-	addRole: `${BASE_URL}/roles/add`,
+	addRole: `${BASE_URL2}/roles/add`,
 	profile: `${BASE_URL2}/auth/profile`,
 	allUnit: `${BASE_URL2}/unit/all_units`,
 	unit: `${BASE_URL2}/unit/unit`,

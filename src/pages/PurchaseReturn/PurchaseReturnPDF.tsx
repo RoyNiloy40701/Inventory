@@ -131,9 +131,9 @@ export const PurchaseReturnPDF: React.FC<PurchaseReturnPDFProps> = ({
           {/* Company Info */}
           <View style={styles.topColumn}>
             <Text style={{ fontWeight: "bold" }}>Company Info</Text>
-            <Text>Inflame Solutions Ltd.</Text>
-            <Text>House-16 Rd 101, Dhaka 1212</Text>
-            <Text>Gulshan Pink City Shopping Complex</Text>
+            <Text>ABC Solutions Ltd.</Text>
+            <Text>House-12 Rd 15, Dhaka 1212</Text>
+            <Text>Bashundhara Residential Area</Text>
             <Text>Email: info@example.com</Text>
           </View>
 

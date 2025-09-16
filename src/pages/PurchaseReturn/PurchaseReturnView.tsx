@@ -33,9 +33,9 @@ export const PurchaseReturnView: React.FC = () => {
     fetchReturn();
   }, [id]);
 
-  if (loading) return <p className="text-center py-12">Loading...</p>;
+  if (loading) return <p className="py-12 text-center">Loading...</p>;
   if (!returnData)
-    return <p className="text-center py-12 text-red-500">Return not found.</p>;
+    return <p className="py-12 text-center text-red-500">Return not found.</p>;
 
   const formatCurrency = (value: number) => `$${value?.toFixed(2)}`;
   const matchedSupplier = supplier.find(
@@ -43,9 +43,9 @@ export const PurchaseReturnView: React.FC = () => {
   );
 
   return (
-    <div className=" px-6 py-6">
+    <div className="px-6 py-6 ">
       {/* Top Bar */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
           Purchase Return Invoice
         </h1>
@@ -54,9 +54,9 @@ export const PurchaseReturnView: React.FC = () => {
         <div className="flex gap-3">
           <button
             onClick={() => navigate(-1)}
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition flex items-center"
+            className="flex items-center px-4 py-2 text-gray-700 transition border border-gray-300 rounded-lg dark:border-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
           >
-            <ArrowLeft className="w-4 h-4 inline-block mr-2" /> Back
+            <ArrowLeft className="inline-block w-4 h-4 mr-2" /> Back
           </button>
 
           <PDFDownloadLink
@@ -69,7 +69,7 @@ export const PurchaseReturnView: React.FC = () => {
               />
             }
             fileName={`purchase_return_${returnData._id}.pdf`}
-            className="px-4 py-2 border border-green-500 text-green-700 rounded-lg hover:bg-green-50 transition flex items-center"
+            className="flex items-center px-4 py-2 text-green-700 transition border border-green-500 rounded-lg hover:bg-green-50"
           >
             Download PDF
           </PDFDownloadLink>
@@ -81,23 +81,23 @@ export const PurchaseReturnView: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
+        className="p-6 bg-white border border-gray-200 shadow-lg dark:bg-gray-900 rounded-xl dark:border-gray-700"
       >
         {/* Top 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 border-b border-gray-300 dark:border-gray-600 pb-4">
+        <div className="grid grid-cols-1 gap-6 pb-4 mb-8 border-b border-gray-300 md:grid-cols-3 dark:border-gray-600">
           {/* Company Info */}
           <div>
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+            <h2 className="mb-2 text-lg font-semibold text-gray-800 dark:text-white">
               Company Info
             </h2>
             <p className="text-gray-700 dark:text-gray-300">
-              Inflame Solutions Ltd.
+              ABC Solutions Ltd.
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              House-16 Rd 101, Dhaka 1212
+              House-12 Rd 15, Dhaka 1212
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              Gulshan Pink City Shopping Complex
+              Bashundhara Residential Area
             </p>
             <p className="text-gray-600 dark:text-gray-400">
               Email: info@example.com
@@ -105,8 +105,8 @@ export const PurchaseReturnView: React.FC = () => {
           </div>
 
           {/* Return Details */}
-          <div className="border-l border-gray-300 dark:border-gray-600 pl-4">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+          <div className="pl-4 border-l border-gray-300 dark:border-gray-600">
+            <h2 className="mb-2 text-lg font-semibold text-gray-800 dark:text-white">
               Return Details
             </h2>
             <DetailItem label="Return ID" value={returnData._id} />
@@ -118,8 +118,8 @@ export const PurchaseReturnView: React.FC = () => {
           </div>
 
           {/* Supplier Info */}
-          <div className="border-l border-gray-300 dark:border-gray-600 pl-4">
-            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+          <div className="pl-4 border-l border-gray-300 dark:border-gray-600">
+            <h2 className="mb-2 text-lg font-semibold text-gray-800 dark:text-white">
               Supplier Info
             </h2>
             <p className="text-gray-700 dark:text-gray-300">
@@ -142,9 +142,9 @@ export const PurchaseReturnView: React.FC = () => {
         </div>
 
         {/* Products Table with Totals */}
-        <div className="overflow-x-auto mb-8">
-          <table className="w-full text-sm border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
-            <thead className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+        <div className="mb-8 overflow-x-auto">
+          <table className="w-full overflow-hidden text-sm border border-gray-200 rounded-lg dark:border-gray-600">
+            <thead className="text-gray-700 bg-gray-100 dark:bg-gray-700 dark:text-gray-300">
               <tr>
                 <th className="px-4 py-2 text-left border">#</th>
                 <th className="px-4 py-2 text-left border">Product</th>
@@ -161,7 +161,7 @@ export const PurchaseReturnView: React.FC = () => {
                 return (
                   <tr
                     key={item._id}
-                    className="border-t dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="transition-colors border-t dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
                   >
                     <td className="px-4 py-2 border">{idx + 1}</td>
                     <td className="px-4 py-2 border">
@@ -181,7 +181,7 @@ export const PurchaseReturnView: React.FC = () => {
               })}
 
               {/* Totals Rows */}
-              <tr className="border-t dark:border-gray-700 font-semibold bg-gray-50 dark:bg-gray-800">
+              <tr className="font-semibold border-t dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
                 <td colSpan={2} className="px-4 py-2 text-right border">
                   Total:
                 </td>
@@ -201,31 +201,31 @@ export const PurchaseReturnView: React.FC = () => {
         </div>
 
         {/* Signatures & Return Info */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-3">
           {/* Signature 1 */}
-          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col items-center p-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
             <span className="mb-8"></span> {/* Gap for signature */}
-            <span className="text-gray-700 dark:text-gray-300 mb-1 border-b border-gray-700 w-32"></span>{" "}
+            <span className="w-32 mb-1 text-gray-700 border-b border-gray-700 dark:text-gray-300"></span>{" "}
             {/* Signature line */}
-            <span className="text-gray-900 dark:text-white font-medium mt-2">
+            <span className="mt-2 font-medium text-gray-900 dark:text-white">
               Checked By
             </span>
           </div>
 
           {/* Signature 2 */}
-          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col items-center p-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
             <span className="mb-8"></span> {/* Gap for signature */}
-            <span className="text-gray-700 dark:text-gray-300 mb-1 border-b border-gray-700 w-32"></span>
-            <span className="text-gray-900 dark:text-white font-medium mt-2">
+            <span className="w-32 mb-1 text-gray-700 border-b border-gray-700 dark:text-gray-300"></span>
+            <span className="mt-2 font-medium text-gray-900 dark:text-white">
               Prepared By
             </span>
           </div>
 
           {/* Signature 3 */}
-          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col items-center p-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
             <span className="mb-8"></span> {/* Gap for signature */}
-            <span className="text-gray-700 dark:text-gray-300 mb-1 border-b border-gray-700 w-32"></span>
-            <span className="text-gray-900 dark:text-white font-medium mt-2">
+            <span className="w-32 mb-1 text-gray-700 border-b border-gray-700 dark:text-gray-300"></span>
+            <span className="mt-2 font-medium text-gray-900 dark:text-white">
               Approved By
             </span>
           </div>
